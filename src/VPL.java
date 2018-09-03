@@ -194,6 +194,75 @@ public class VPL
             // implement all operations here:
             // ********************************************
 
+
+            if(oppCode == 22){
+                mem[a] = b;
+            }
+
+            if(oppCode == 23){
+                mem[a] = mem[b];
+            }
+
+            if(oppCode == 24){
+                mem[a] = mem[hp - (mem[b] + mem[c])];
+            }
+
+            if(oppCode == 25){
+
+                mem[hp - (mem[a] + mem[b])] = mem[c];
+            }
+
+            if(oppCode == 26){
+                System.exit(0);
+            }
+
+            if(oppCode == 27){
+
+                int temp;
+                System.out.print("? ");
+
+                try{
+                    temp = keys.nextInt();
+                    mem[a] = temp;
+
+                }catch(InputMismatchException e){
+                    e.printStackTrace();
+
+                }
+            }
+
+            if(oppCode == 28){
+                System.out.println(mem[a]);
+            }
+
+            if(oppCode == 29){
+                System.out.println();
+            }
+
+            if(oppCode == 30){
+                if(a > 32 && a < 126){
+                    System.out.println(a);
+                }
+            }
+
+            if(oppCode == 31){
+                hp -= b;
+                mem[a] = hp;
+            }
+
+            if(oppCode == 32){
+                gp = max;
+                sp = max + a;
+            }
+
+            if(oppCode == 33){
+                mem[gp+a] = b;
+            }
+
+            if(oppCode == 34){
+                mem[a] = gp + b;
+            }
+
             // put your work right here!
 
             if ( op == oppCode ) {
