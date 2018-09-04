@@ -194,7 +194,74 @@ public class VPL
             // implement all operations here:
             // ********************************************
 
+            // arithmetic
+            if(op == addCode){
+                mem[a] = b + c;
+            }
 
+            if(op == subCode){
+                mem[a] = b - c;
+            }
+
+            if(op == multCode){
+                mem[a] = b * c;
+            }
+
+            if(op == divCode){
+                mem[a] = b / c;
+            }
+
+            if(op == remCode){
+                mem[a] = b%c;
+            }
+
+            if(op == equalCode){
+                if(b == c){
+                    mem[a] = 1;
+                }else mem[a] = 0;
+            }
+
+            if(op == notEqualCode){
+                if(b!= c){
+                    mem[a] = 1;
+                }else mem[a] = 0;
+            }
+                
+            if(op == lessCode){
+                if(b < c){
+                    mem[a] = 1;
+                }else mem[a] = 0;
+            }
+
+            if(op == lessEqualCode){
+                if (b <= c){
+                    mem[a] = 1;
+                }else mem[a] = 0;
+            }
+
+            if(op == andCode){
+                if(b > 0 && c > 0){
+                    mem[a] = 1;
+                }else mem[a] = 0;
+            }
+
+            if(op == orCode){
+                if(b > 0 || c > 0){
+                    mem[a] = 1;
+                }else mem[a] = 0;
+            }
+
+            if(op == notCode){
+                if( b == 0){
+                    mem[a] = 1;
+                }else mem[a] = 0;
+            }
+
+            if ( op == oppCode ) {
+                mem[ bp+2 + a ] = - mem[ bp+2 + b ];
+            }
+
+            // transfer of data
             if(op == litCode){
                 mem[a] = b;
             }
@@ -264,11 +331,6 @@ public class VPL
             }
 
             // put your work right here!
-
-            if ( op == oppCode ) {
-                mem[ bp+2 + a ] = - mem[ bp+2 + b ];
-            }
-
 
             else
             {
@@ -399,6 +461,12 @@ public class VPL
             System.out.println( k + ": " + mem[k] );
         }
     }// showMem
+
+    private static Integer booleanChanger(boolean bool){
+        if(bool == true){
+            return 1;
+        }else { return 0; }
+    }
 
 }// VPL
 
