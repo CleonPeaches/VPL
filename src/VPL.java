@@ -195,97 +195,116 @@ public class VPL
             // ********************************************
             // register ops
 
-            if(op == labelCode)
+            if(op == labelCode){
+
+            }
+
+            else if(op == callCode){
+
+            }
+
+            else if(op == passCode){
+
+            }
+
+            else if(op == allocCode){
+
+            }
+
+            else if(op == returnCode){
+
+            }
+
             // arithmetic ops
-            if(op == addCode){
+            else if(op == addCode){
                 mem[a] = b + c;
             }
 
-            if(op == subCode){
+            else if(op == subCode){
                 mem[a] = b - c;
             }
 
-            if(op == multCode){
+            else if(op == multCode){
                 mem[a] = b * c;
             }
 
-            if(op == divCode){
+            else if(op == divCode){
                 mem[a] = b / c;
             }
 
-            if(op == remCode){
+            else if(op == remCode){
                 mem[a] = b%c;
             }
 
-            if(op == equalCode){
+            else if(op == equalCode){
                 if(b == c){
                     mem[a] = 1;
                 }else mem[a] = 0;
             }
 
-            if(op == notEqualCode){
+            else if(op == notEqualCode){
                 if(b!= c){
                     mem[a] = 1;
                 }else mem[a] = 0;
             }
                 
-            if(op == lessCode){
+            else if(op == lessCode){
                 if(b < c){
                     mem[a] = 1;
                 }else mem[a] = 0;
             }
 
-            if(op == lessEqualCode){
+            else if(op == lessEqualCode){
                 if (b <= c){
                     mem[a] = 1;
                 }else mem[a] = 0;
             }
 
-            if(op == andCode){
+            else if(op == andCode){
                 if(b > 0 && c > 0){
                     mem[a] = 1;
                 }else mem[a] = 0;
             }
 
-            if(op == orCode){
+            else if(op == orCode){
                 if(b > 0 || c > 0){
                     mem[a] = 1;
                 }else mem[a] = 0;
             }
 
-            if(op == notCode){
+            else if(op == notCode){
                 if( b == 0){
                     mem[a] = 1;
                 }else mem[a] = 0;
             }
 
-            if ( op == oppCode ) {
+            else if ( op == oppCode ) {
                 mem[ bp+2 + a ] = - mem[ bp+2 + b ];
             }
 
             // transfer of data
-            if(op == litCode){
+            else if(op == litCode){
                 mem[a] = b;
             }
 
-            if(op == copyCode){
+            else if(op == copyCode){
                 mem[a] = mem[b];
             }
 
-            if(op == getCode){
+            else if(op == getCode){
                 mem[a] = mem[hp - (mem[b] + mem[c])];
             }
 
-            if(op == putCode){
+            else if(op == putCode){
 
                 mem[hp - (mem[a] + mem[b])] = mem[c];
             }
 
-            if(op == haltCode){
+            else if(op == haltCode){
                 System.exit(0);
             }
 
-            if(op == inputCode){
+            else if(op == inputCode){
 
                 int temp;
                 System.out.print("? ");
@@ -300,35 +319,35 @@ public class VPL
                 }
             }
 
-            if(op == outputCode){
+            else if(op == outputCode){
                 System.out.println(mem[a]);
             }
 
-            if(op == newlineCode){
+            else if(op == newlineCode){
                 System.out.println();
             }
 
-            if(op == symbolCode){
+            else if(op == symbolCode){
                 if(a > 32 && a < 126){
                     System.out.println(a);
                 }
             }
 
-            if(op == newCode){
+            else if(op == newCode){
                 hp -= b;
                 mem[a] = hp;
             }
 
-            if(op  == allocGlobalCode){
+            else if(op  == allocGlobalCode){
                 gp = max;
                 sp = max + a;
             }
 
-            if(op == toGlobalCode){
+            else if(op == toGlobalCode){
                 mem[gp+a] = b;
             }
 
-            if(op == fromGlobalCode){
+            else if(op == fromGlobalCode){
                 mem[a] = gp + b;
             }
 
