@@ -195,6 +195,7 @@ public class VPL
             // ********************************************
             // register ops
 
+            if(op == labelCode)
             // arithmetic ops
             if(op == addCode){
                 mem[a] = b + c;
