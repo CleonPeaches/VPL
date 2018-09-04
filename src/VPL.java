@@ -195,28 +195,28 @@ public class VPL
             // ********************************************
 
 
-            if(oppCode == 22){
+            if(op == litCode){
                 mem[a] = b;
             }
 
-            if(oppCode == 23){
+            if(op == copyCode){
                 mem[a] = mem[b];
             }
 
-            if(oppCode == 24){
+            if(op == getCode){
                 mem[a] = mem[hp - (mem[b] + mem[c])];
             }
 
-            if(oppCode == 25){
+            if(op == putCode){
 
                 mem[hp - (mem[a] + mem[b])] = mem[c];
             }
 
-            if(oppCode == 26){
+            if(op == haltCode){
                 System.exit(0);
             }
 
-            if(oppCode == 27){
+            if(op == inputCode){
 
                 int temp;
                 System.out.print("? ");
@@ -231,35 +231,35 @@ public class VPL
                 }
             }
 
-            if(oppCode == 28){
+            if(op == outputCode){
                 System.out.println(mem[a]);
             }
 
-            if(oppCode == 29){
+            if(op == newlineCode){
                 System.out.println();
             }
 
-            if(oppCode == 30){
+            if(op == symbolCode){
                 if(a > 32 && a < 126){
                     System.out.println(a);
                 }
             }
 
-            if(oppCode == 31){
+            if(op == newCode){
                 hp -= b;
                 mem[a] = hp;
             }
 
-            if(oppCode == 32){
+            if(op  == allocGlobalCode){
                 gp = max;
                 sp = max + a;
             }
 
-            if(oppCode == 33){
+            if(op == toGlobalCode){
                 mem[gp+a] = b;
             }
 
-            if(oppCode == 34){
+            if(op == fromGlobalCode){
                 mem[a] = gp + b;
             }
 
