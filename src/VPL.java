@@ -112,8 +112,8 @@ public class VPL
             }// have a line
         }// loop to load code
 
-        //System.out.println("after first scan:");
-        //showMem( 0, k-1 );
+        System.out.println("after first scan:");
+        showMem( 0, k-1 );
 
         // fill in all the holes:
         int index;
@@ -193,8 +193,9 @@ public class VPL
 
             // implement all operations here:
             // ********************************************
+            // register ops
 
-            // arithmetic
+            // arithmetic ops
             if(op == addCode){
                 mem[a] = b + c;
             }
