@@ -204,14 +204,26 @@ public class VPL
             }
 
             else if(op == passCode){
-
+                bp = sp+=2;
+                
             }
 
             else if(op == allocCode){
-
+                sp += a;
             }
 
             else if(op == returnCode){
+                rv = mem[a];
+            }
+
+            else if(op == getRetvalCode){
+                mem[a] = rv;
+            }
+
+            else if(op == jumpCode){
+
+            }
+            else if(op == condJumpCode){
 
             }
 
@@ -482,12 +494,6 @@ public class VPL
             System.out.println( k + ": " + mem[k] );
         }
     }// showMem
-
-    private static Integer booleanChanger(boolean bool){
-        if(bool == true){
-            return 1;
-        }else { return 0; }
-    }
 
 }// VPL
 
