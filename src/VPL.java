@@ -221,9 +221,9 @@ public class VPL
             }
 
             else if(op == returnCode){
-                bp = mem[bp+1];
-                ip = mem[bp];
                 rv = mem[bp + 2 + a];
+                ip = mem[bp];
+                bp = mem[bp+1];
             }
 
             else if(op == getRetvalCode){
@@ -235,7 +235,7 @@ public class VPL
             }
             else if(op == condJumpCode){
                 if( mem[bp + 2 + b] > 0 ){
-                    ip = mem[a];
+                    ip = a;
                 }
             }
 
