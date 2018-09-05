@@ -69,7 +69,7 @@ public class VPL
         int k=0;
         while ( input.hasNextLine() ) {
             line = input.nextLine();
-            System.out.println("parsing line [" + line + "]");
+            //System.out.println("parsing line [" + line + "]");
             if( line != null )
             {// extract any tokens
                 st = new StringTokenizer( line );
@@ -136,8 +136,8 @@ public class VPL
 
         int codeEnd = bp-1;
 
-        System.out.println("Code is " );
-        showMem( 0, codeEnd );
+        //System.out.println("Code is " );
+        //showMem( 0, codeEnd );
 
         gp = codeEnd + 1;
 
@@ -155,28 +155,29 @@ public class VPL
 
         do {
         
-        // show details of current step
-        System.out.println("--------------------------");
-        System.out.println("Step of execution with IP = " + ip + " opcode: " +
-            mem[ip] +
-            " bp = " + bp + " sp = " + sp + " hp = " + hp + " rv = " + rv + " rbp= " + mem[bp] + "rip= " + mem[bp+1]);
-        System.out.print(" chunk of code: ");
-        for(int i = 0; i <= numArgs(mem[ip] + 1); i++) {
-            System.out.print(mem[ip + i]);
-        }
-        System.out.print("\n");
-        System.out.println("--------------------------");
-        System.out.println( " memory from " + (codeEnd+1) + " up: " );
-        showMem( codeEnd+1, sp+3 );
-        System.out.println("\n\n--------------------------");
-        if (hp < max){
-            System.out.println( " memory from hp: " + hp + " up: " );
-            showMem( hp, max - 1);
-        }
-        
-        System.out.println("hit <enter> to go on" );
-        keys.nextLine();
-        
+            /*
+            // show details of current step
+            System.out.println("--------------------------");
+            System.out.println("Step of execution with IP = " + ip + " opcode: " +
+                mem[ip] +
+                " bp = " + bp + " sp = " + sp + " hp = " + hp + " rv = " + rv + " rbp= " + mem[bp] + "rip= " + mem[bp+1]);
+            System.out.print(" chunk of code: ");
+            for(int i = 0; i <= numArgs(mem[ip] + 1); i++) {
+                System.out.print(mem[ip + i]);
+            }
+            System.out.print("\n");
+            System.out.println("--------------------------");
+            System.out.println( " memory from " + (codeEnd+1) + " up: " );
+            showMem( codeEnd+1, sp+3 );
+            System.out.println("\n\n--------------------------");
+            if (hp < max){
+                System.out.println( " memory from hp: " + hp + " up: " );
+                showMem( hp, max - 1);
+            }
+            
+            System.out.println("hit <enter> to go on" );
+            keys.nextLine();
+            */
             oldIp = ip;
 
             op = mem[ ip ];  ip++;
@@ -326,6 +327,7 @@ public class VPL
             }
 
             else if(op == haltCode){
+                input.close();
                 System.exit(0);
             }
 
@@ -345,17 +347,17 @@ public class VPL
             }
 
             else if(op == outputCode){
-                System.out.println(bp + 2 + a);
-                System.out.println(mem[ bp + 2 + a ]);
+                System.out.print(mem[ bp + 2 + a ]);
             }
 
             else if(op == newlineCode){
-                System.out.println();
+                System.out.print("\n");
             }
 
             else if(op == symbolCode){
-                if(mem[ bp + 2 + a] >= 32 && mem[ bp + 2 + a] <= 126){
-                    System.out.println((char)a);
+                int out = mem[ bp + 2 + a];
+                if(out >= 32 && out <= 126){
+                    System.out.print((char)out);
                 }
             }
 
