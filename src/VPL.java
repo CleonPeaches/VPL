@@ -317,7 +317,7 @@ public class VPL
             }
 
             else if(op == getCode){
-                mem[bp + 2 + a] = mem[hp + (mem[ bp + 2 + b] + mem[bp + 2 + c] - 1)];
+                mem[bp + 2 + a] = mem[mem[ bp + 2 + b] + mem[bp + 2 + c]];
             }
 
             else if(op == putCode){
