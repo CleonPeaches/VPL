@@ -223,6 +223,7 @@ public class VPL
             else if(op == returnCode){
                 rv = mem[bp + 2 + a];
                 ip = mem[bp];
+                sp = bp;
                 bp = mem[bp+1];
             }
 
@@ -316,7 +317,7 @@ public class VPL
             }
 
             else if(op == getCode){
-                mem[bp + 2 + a] = mem[hp + (mem[ bp + 2 + b] + mem[bp + 2 + c])];
+                mem[bp + 2 + a] = mem[hp + (mem[ bp + 2 + b] + mem[bp + 2 + c] - 1)];
             }
 
             else if(op == putCode){
@@ -344,7 +345,8 @@ public class VPL
             }
 
             else if(op == outputCode){
-                System.out.println(mem[a]);
+                System.out.println(bp + 2 + a);
+                System.out.println(mem[ bp + 2 + a ]);
             }
 
             else if(op == newlineCode){
@@ -352,7 +354,7 @@ public class VPL
             }
 
             else if(op == symbolCode){
-                if(a >= 32 && a <= 126){
+                if(mem[ bp + 2 + a] >= 32 && mem[ bp + 2 + a] <= 126){
                     System.out.println((char)a);
                 }
             }
