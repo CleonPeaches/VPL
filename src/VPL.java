@@ -168,33 +168,26 @@ public class VPL
             else if( actualNumArgs == 3 )
             {  a = mem[ ip ];  ip++;  b = mem[ ip ]; ip++; c = mem[ ip ]; ip++; }
 
-            if(op == noop){}
             // implement all operations here:
             // ********************************************
             // register ops
-
-            else if(op == labelCode){
+            if(op == labelCode){
 
             }
             
             else if(op == callCode){
-                rip = ip;
+                rip = ip + 1;
+                rbp = bp;
                 bp = sp;
                 sp += 2;
-                mem[bp] = rip;
-                mem[bp + 1] = rbp;
-                ip = mem[a];               
+                sp += numPassed;
+                numPassed = 0;
+                ip = mem[a];
             }
 
             else if(op == passCode){
-                rbp = bp;
-                if( bp == rbp  ){
-                    bp = sp;
-                }
-                if(bp == sp){
-                    sp += 2;
-                }
-                mem[sp++] = a;
+                mem[sp + 2] = a;
+                numPassed++;
             }
 
             else if(op == allocCode){
