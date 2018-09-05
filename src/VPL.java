@@ -168,11 +168,12 @@ public class VPL
             else if( actualNumArgs == 3 )
             {  a = mem[ ip ];  ip++;  b = mem[ ip ]; ip++; c = mem[ ip ]; ip++; }
 
+            if(op == noop){}
             // implement all operations here:
             // ********************************************
             // register ops
 
-            if(op == labelCode){
+            else if(op == labelCode){
 
             }
             
