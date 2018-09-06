@@ -186,7 +186,7 @@ public class VPL
             }
 
             else if(op == passCode){
-                mem[sp + 2] = a;
+                mem[sp + 2 + numPassed] = a;
                 numPassed++;
             }
 
